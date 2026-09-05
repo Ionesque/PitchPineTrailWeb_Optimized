@@ -415,11 +415,13 @@ function imageButtonPixelatedWithPopup(imageName, hoverImageName, clickImageName
   wrapper.tabIndex = 0;
   wrapper.setAttribute("role", "button");
   wrapper.setAttribute("aria-label", altText);
+  
   const img = document.createElement("img");
   img.style.imageRendering = "pixelated";			// Disable pixel smoothing
   img.className = "image-button-img";
   img.src = asset(imageName);
   img.alt = "";
+  
   const popup = document.createElement("div");
   popup.className = "image-button-popup";
   popup.textContent = popupText;
@@ -1207,7 +1209,7 @@ function showClosingScreen() {
       showAnalysisLab(getWinBgName(), true, "closing");
     }, "To the computer lab!"),
     imageButton("savecert.png", "savecert_hover.png", "closing-certificate-button", "Save your successful management certificate", showCertificateOverlay),
-    imageButtonWithPopup("tryagain.png", "tryagain_hover.png", "closing-restart-button", "Try Again", restartGame, "Whoo Hoo! Let's go!"),
+    imageButtonPixelatedWithPopup("tryagain_normal.gif", "tryagain_hover.gif", "tryagain_hover.gif", "closing-restart-button", "Try Again", restartGame, "Whoo Hoo! Let's go!"),
     imageButtonPixelatedWithPopup("exitbutton_normal.gif", "exitbutton_hover.gif", "exitbutton_click.gif", "closing-exit-button", "Exit", () => showExitSurveyOverlay(), "Hope to see you again soon!"),
     imageButtonPixelatedWithPopup("pocketprez_normal.gif", "pocketprez_hover.gif", "pocketprez_click.gif", "closing-pocketprez-button", "Learn more about forestry concepts", () => window.open("https://dep.nj.gov/parksandforests/conservation/pocket-presentations/", "_blank", "noopener,noreferrer"), "Click here to learn more about the Forestry concepts presented in this game!")
   );
@@ -1235,7 +1237,7 @@ function showLossScreen(bg, text, soundFn) {
   actions.className = "closing-actions";
   actions.append(
     imageButtonWithPopup("analysislab_button.png", "analysislab_button_hover.png", "closing-analyze-button", "Analyze My Management", () => showAnalysisLab(bg, true, bg), "To the computer lab!"),
-    imageButtonWithPopup("tryagain.png", "tryagain_hover.png", "closing-restart-button", "Try Again", restartGame, "Whoo Hoo! Let's go!"),
+    imageButtonPixelatedWithPopup("tryagain_normal.gif", "tryagain_hover.gif", "tryagain_hover.gif", "closing-restart-button", "Try Again", restartGame, "Whoo Hoo! Let's go!"),
     imageButtonPixelatedWithPopup("exitbutton_normal.gif", "exitbutton_hover.gif", "exitbutton_click.gif", "closing-exit-button", "Exit", () => showExitSurveyOverlay(), "Hope to see you again soon!"),
     imageButtonPixelatedWithPopup("pocketprez_normal.gif", "pocketprez_hover.gif", "pocketprez_click.gif", "closing-pocketprez-button", "Learn more about forestry concepts", () => window.open("https://dep.nj.gov/parksandforests/conservation/pocket-presentations/", "_blank", "noopener,noreferrer"), "Click here to learn more about the Forestry concepts presented in this game!")
   );
