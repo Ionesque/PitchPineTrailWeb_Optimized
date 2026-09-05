@@ -1229,10 +1229,12 @@ function showLossScreen(bg, text, soundFn) {
   clearScreen(bg);
   renderMetrics();
   renderColoringPageDownload(false);
+  
   const message = document.createElement("section");
-  message.className = "loss-message";
+  message.className = "loss-message dos-textbox";
   message.textContent = text;
   root.append(message);
+  
   const actions = document.createElement("div");
   actions.className = "closing-actions";
   actions.append(
