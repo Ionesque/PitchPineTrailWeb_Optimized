@@ -145,6 +145,21 @@ input:focus-visible {
   color: var(--green);
 }
 
+.analysis-blinking-light {
+  position: absolute;
+  left: calc(202 / 980 * 100%);
+  top: calc(320 / 480 * 100%);
+  width: calc(30 / 980 * 100%);
+  height: calc(18 / 480 * 100%);
+
+  image-rendering: pixelated; /* All others */
+  image-rendering: crisp-edges; /* Safari */
+  
+  
+  pointer-events: none; /* Allows clicks to pass through to underlying hotspots */
+  z-index: 1; /* Sits directly over the background image */
+}
+
 .analysis-table {
   position: absolute;
   background: transparent;

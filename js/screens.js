@@ -1693,6 +1693,13 @@ function showAnalysisLab(prevBg = game.current_bg_img, loading = true, returnTar
   clearScreen(loading ? "analyze_load.jpg" : "analyze.jpg");
   const build = () => {
     clearScreen("analyze.jpg");
+	
+	// Add the blinking light overlay directly over analyze.jpg
+    const lightGif = document.createElement("img");
+    lightGif.src = "./assets/analyze_Green_LED_Blink.gif";
+    lightGif.className = "analysis-blinking-light";
+    root.append(lightGif);
+	
     const rows = game.getDecadalData(10);
     const table = document.createElement("pre");
     table.className = "analysis-table";
@@ -1704,6 +1711,7 @@ function showAnalysisLab(prevBg = game.current_bg_img, loading = true, returnTar
         sounds.playComputerShutdown();
         sounds.stopAnalysisLabSound();
         setBg(prevBg);
+		
         if (returnTarget === "closing") {
           showClosingScreen();
           sounds.playForestSound();
@@ -1737,7 +1745,7 @@ function showAnalysisLab(prevBg = game.current_bg_img, loading = true, returnTar
       cleanupDefinitionsHotspot();
       cleanupFieldGuideHotspot();
     };
-    startAnalysisBlink();
+    
   };
   if (loading) setTimeout(build, 1000);
   else build();
